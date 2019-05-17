@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+        <variable name="act" type="com.compa.test_thread.view.game.bignumber.BigNumberActivity"/>
         <variable name="vm" type="com.compa.test_thread.viewmodel.BigNumberVM"/>
     </data>
 

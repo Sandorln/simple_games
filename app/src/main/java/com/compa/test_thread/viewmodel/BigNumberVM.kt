@@ -1,5 +1,7 @@
 package com.compa.test_thread.viewmodel
 
+import androidx.lifecycle.ViewModel
+
 /**
  * Big Number Choice Game ViewModel
  *
@@ -7,6 +9,7 @@ package com.compa.test_thread.viewmodel
  * _ 4개의 숫자가 표시된 이후 빠르게 큰 숫자를 선택했을 시 추가 시간 및 추가 점수 획득
  * _ 일정 시간이 종료될 시 최종 점수 표시
  */
-class BigNumberVM {
+class BigNumberVM : ViewModel() {
+
 
 }
