@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="act" type="com.compa.test_thread.view.main.MainActivity"/>
+    </data>
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="50dp">
+
+        <Button
+                android:onClickListener="@{act}"
+                android:transitionName="btn_title"
+                android:id="@+id/btn_random"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:text="Random Game"/>
+    </LinearLayout>
+
+</layout>
