@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.game.random.RandomActivity"/>
+        <activity android:name=".view.game.choice7.Choice7"/>
         <activity android:name=".view.game.bignumber.BigNumberActivity"/>
     </application>
 </manifest>

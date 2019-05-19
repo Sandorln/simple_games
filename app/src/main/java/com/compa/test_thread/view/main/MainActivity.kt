@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.compa.test_thread.R
 import com.compa.test_thread.databinding.AMainBinding
-import com.compa.test_thread.view.game.random.RandomActivity
+import com.compa.test_thread.view.game.choice7.Choice7
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         when (v!!.id) {
             R.id.btn_random -> {
-                moveIntent = Intent(this, RandomActivity::class.java)
+                moveIntent = Intent(this, Choice7::class.java)
                 activityOptions = ActivityOptions.makeSceneTransitionAnimation(
                     this,
                     findViewById(R.id.btn_random),
