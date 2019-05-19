@@ -61,10 +61,9 @@ class Choice7VM : ViewModel() {
      * _ 시작 시 _ RandomNum : GameDelay 가 지날 시 변경
      */
     fun actionRandom() {
-        if (_isReady.value!!) {
+        if (_isReady.value!! && !isResult.value!!) {
             _isReady.value = false
             isGaming = true
-            isResult.value = false
 
             _life.value = 3
             _level.value = 1
@@ -83,9 +82,9 @@ class Choice7VM : ViewModel() {
      * _ 사용자가 획득한 점수 표시
      */
     private fun endGame() {
-        _isReady.postValue(true)
         isResult.postValue(true)
         isGaming = false
+        _isReady.postValue(true)
 
         gameThread.interrupt()
     }
@@ -131,7 +130,7 @@ class Choice7VM : ViewModel() {
             _life.postValue(_life.value!! - 1)
             gameDelayTime.postValue(1500)
 
-            if (_life.value!! < 1)
+            if (_life.value!! <= 1)
                 endGame()
         }
     }
@@ -149,7 +148,6 @@ class Choice7VM : ViewModel() {
                     nowTime = 0
                     nowDelayTime.postValue(0)
                     isChoice = false
-
                 } else if (isGaming && !isChoice && nowTime >= gameDelayTime.value!!) {
                     /* 현재 게임 중이며 사용자가 숫자를 선택 안했지만 시간을 넘겼을 시 */
                     userNOTChoiceNumber()
@@ -162,8 +160,6 @@ class Choice7VM : ViewModel() {
                     nowTime += 10
                     nowDelayTime.postValue(nowTime)
                 }
-
-
             } catch (e: InterruptedException) {
                 _randomNum.postValue(randomNum.value)
             }
@@ -173,12 +169,15 @@ class Choice7VM : ViewModel() {
     companion object {
         @JvmStatic
         @BindingAdapter("endGameResult")
-        fun createGameResultDialog(layout: ConstraintLayout, isResult: LiveData<Boolean>) {
+        fun createGameResultDialog(layout: ConstraintLayout, isResult: MutableLiveData<Boolean>) {
             if (isResult.value!!) {
                 AlertDialog.Builder(layout.context)
                     .setTitle("Game Over")
                     .setMessage("수고하셨습니다")
-                    .setPositiveButton("확인", null)
+                    .setPositiveButton("확인") { _, _ ->
+                        isResult.value = false
+                    }
+                    .setCancelable(false)
                     .create()
                     .show()
             }

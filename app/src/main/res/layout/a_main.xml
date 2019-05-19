@@ -16,7 +16,7 @@
                 android:id="@+id/btn_random"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:text="Random Game"/>
+                android:text="CHOICE 7 Game"/>
     </LinearLayout>
 
 </layout>

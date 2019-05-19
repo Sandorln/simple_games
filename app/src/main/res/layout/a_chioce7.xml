@@ -94,7 +94,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/layout_gameState"
                     app:layout_constraintBottom_toTopOf="@id/tx_randomTitle"
                     android:gravity="center"
-                    android:hint="GAME RULE\n무작위 숫자가 7일때 STOP을 눌러주세요!"
+                    android:hint="GAME RULE\n무작위 숫자가 7일때 CHOICE 버튼을을 눌러주세요!"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -138,7 +138,7 @@
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text='@{vm.isReady() ? "START" : "CHIOCE"}'
+                android:text='@{vm.isReady() ? "START" : "CHOICE"}'
                 android:layout_marginTop="40dp"
                 android:elevation="5dp"
                 android:id="@+id/btn_action"
